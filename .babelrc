@@ -1,0 +1,21 @@
+{
+  "presets" : [
+    "es2015",
+    "react",
+    "stage-0"
+  ],
+  "plugins" : [
+    [
+      "transform-decorators-legacy",
+      "transform-class-properties",
+      "react-css-modules",
+      {
+        "context"            : "./src",
+        "generateScopedName" : "[name]__[local]___[hash:base64:5]",
+        "filetypes"          : {
+          ".scss" : "postcss-scss"
+        }
+      }
+    ]
+  ]
+}
