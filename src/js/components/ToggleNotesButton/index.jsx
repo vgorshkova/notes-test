@@ -4,13 +4,12 @@ import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
 import NotesList from '../NotesList';
 
-const style = {
-    margin: 12,
-};
-
 export default class ShowNotesButton extends React.Component {
 
-    state = {anchorEl: null};
+    constructor(props) {
+        super(props);
+        this.state ={ anchorEl: null };
+    }
 
     componentDidMount() {
         this.setState({
@@ -19,8 +18,7 @@ export default class ShowNotesButton extends React.Component {
     };
 
     handleTouchTap = (event) => {
-        event.preventDefault(); ///?
-
+        event.preventDefault();
         this.props.onToggleUnreadNotesPopup();
     };
 
@@ -28,10 +26,10 @@ export default class ShowNotesButton extends React.Component {
         const {notes, unreadNotesPopoverOpen, onToggleUnreadNotesPopup} = this.props;
         return (
             <div>
-                <div ref={(input) => { this.AnchorElement = input; }}>
+                <div ref={(icon) => { this.AnchorElement = icon; }}>
                     <IconButton
                         onTouchTap={this.handleTouchTap}
-                        tooltip="Notifications"
+                        tooltip="Уведомления"
                     >
                         <NotificationsIcon />
                     </IconButton>

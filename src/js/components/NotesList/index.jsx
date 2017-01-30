@@ -1,8 +1,13 @@
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
-import Moment from 'moment';
+import moment from 'moment';
 
 export default class NotesList extends React.Component {
+
+    constructor(props) {
+        super(props);
+        moment.locale('ru');
+    }
 
     onClick = (event) => {
         event.preventDefault();
@@ -17,7 +22,7 @@ export default class NotesList extends React.Component {
                 <ListItem
                     key={note.id}
                     primaryText={note.title}
-                    secondaryText={Moment(note.datetime).fromNow()}
+                    secondaryText={moment(note.datetime).fromNow()}
                 />
             );
         });

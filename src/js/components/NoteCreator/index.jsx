@@ -1,17 +1,18 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '../Button';
+import styles from './styles';
 
-const style = {
-    margin: 12,
-};
 
 export default class NoteCreator extends React.Component {
 
-    state = {
-        newNoteTitle: '',
-        isButtonDisabled: true
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            newNoteTitle: '',
+            isButtonDisabled: true
+        };
+    }
 
     onChange = (e) => {
         this.fillInput(e.target.value);
@@ -25,9 +26,9 @@ export default class NoteCreator extends React.Component {
         });
     };
 
-    clearInput() {
+    clearInput = () => {
         this.fillInput('');
-    }
+    };
 
     onClick = () => {
         this.props.onClick({
@@ -38,6 +39,12 @@ export default class NoteCreator extends React.Component {
         this.clearInput();
     };
 
+    onKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            this.onClick();
+        }
+    };
+
     render () {
         return (
             <div>
@@ -46,13 +53,14 @@ export default class NoteCreator extends React.Component {
                     floatingLabelText="Событие"
                     onChange={this.onChange}
                     value={this.state.newNoteTitle}
+                    style={styles.textField}
+                    onKeyPress={this.onKeyPress}
                 />
-                <RaisedButton
+                <Button
                     onClick={this.onClick}
                     label="Отправить"
                     disabled={this.state.isButtonDisabled}
-                    primary={true}
-                    style={style}
+                    style={{isNeighbor: true}}
                 />
             </div>
         );

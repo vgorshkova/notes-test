@@ -1,16 +1,7 @@
 import React from 'react';
 import ApplicationBar from 'material-ui/AppBar';
 import NotesIcon from '../NotesIcon';
-
-const style = {
-    title: {
-        verticalAlign: 'middle',
-        textAlign: 'center',
-        height: '100px',
-        lineHeight: '100px',
-    },
-
-};
+import styles from './styles';
 
 export default class AppBar extends React.Component {
 
@@ -20,7 +11,7 @@ export default class AppBar extends React.Component {
         return (
             <ApplicationBar
                 title="Your messages"
-                titleStyle={style.title}
+                titleStyle={styles.title}
                 iconElementRight={
                 <NotesIcon
                     notes={notes}

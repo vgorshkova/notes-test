@@ -1,6 +1,7 @@
-import * as actions from '../src/js/actions/actions';
-import * as types from '../src/js/constants/ActionTypes'
+import * as actions from '../../src/js/actions/actions';
+import * as types from '../../src/js/constants/ActionTypes'
 
+//note actions
 describe('actions', () => {
     it('should create a note', () => {
         const title     = 'Testing new note addition';
@@ -38,19 +39,9 @@ describe('actions', () => {
     })
 });
 
-describe('actions', () => {
-    it('should marked all notes as read', () => {
-        const expectedAction = {
-            type: types.MARKED_ALL_NOTES_AS_READ,
-        };
-        expect(actions.markedAllNotesAsRead()).toEqual(expectedAction);
-    })
-});
-
-
 // ui actions
 describe('actions', () => {
-    it('should marked all notes as read', () => {
+    it('Toggle unread notes popover', () => {
         const expectedAction = {
             type: types.TOGGLE_UNREAD_NOTES_POPOVER,
         };

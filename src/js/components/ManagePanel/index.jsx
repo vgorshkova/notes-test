@@ -1,35 +1,36 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import styles from './index.css';
+import Button from '../Button';
 
-export default class ManagePanel extends React.Component {
+const ManagePanel = ({
+    onMarkAllNotesAsRead,
+    onDeleteNotes,
+    onToggleUnreadNotesPopup,
+    unreadNotesNumber,
+    isAnyNoteExist,
+    isUnreadNotesPopoverOpen }) => {
 
-    render() {
-        return (
-            <div>
-                <RaisedButton
-                    label="Пометить все события прочитанными"
-                    onClick={this.props.onMarkAllNotesAsRead}
-                    primary={true}
-                    disabled={!this.props.unreadNotesNumber}
-                    styleName="button"
-                />
-                <RaisedButton
-                    label="Удалить все события"
-                    onClick={this.props.onDeleteNotes}
-                    primary={true}
-                    disabled={!this.props.isAnyNoteExist}
-                    styleName="button"
-                />
-                <RaisedButton
-                    label={this.props.isUnreadNotesPopoverOpen ? "Скрыть popup нотификаций" : "Показать popup нотификаций"}
-                    onClick={this.props.onToggleUnreadNotesPopup}
-                    primary={true}
-                    styleName="button"
-                />
-                <button styleName="button">ghjgj</button>
+    return (
+        <div>
+            <Button
+                label="Пометить все события прочитанными"
+                onClick={onMarkAllNotesAsRead}
+                disabled={!unreadNotesNumber}
+                style={{isNeighbor: false}}
+            />
+            <Button
+                label="Удалить все события"
+                onClick={onDeleteNotes}
+                disabled={!isAnyNoteExist}
+                style={{isNeighbor: false}}
+            />
+            <Button
+                label={isUnreadNotesPopoverOpen ? "Скрыть popup нотификаций" : "Показать popup нотификаций"}
+                onClick={onToggleUnreadNotesPopup}
+                style={{isNeighbor: false}}
+            />
 
-            </div>
-        )
-    }
-}
+        </div>
+    )
+};
+
+export default ManagePanel

@@ -3,13 +3,10 @@ import AppBar from '../ApplicationBar';
 import NoteCreator from '../NoteCreator';
 import ManagePanel from '../ManagePanel';
 import { connect } from 'react-redux';
-import * as Actions from '../../actions/actions'
-import Chance from 'chance';
-//import styles from './layout.scss';
-//require('./layout.scss');
+import * as Actions from '../../actions/actions';
+import CSSModules from 'react-css-modules'; //could be used in layout with the attribute 'styleName'
+import {NOTES_NUMBER_IN_POPOVER} from '../../constants/common'
 
-
-const NOTES_NUMBER_IN_POPOVER = 5;
 
 @connect((store) => {
     return {
@@ -19,6 +16,8 @@ const NOTES_NUMBER_IN_POPOVER = 5;
         isAnyNoteExist: store.notes.length
     };
 })
+
+//@CSSModules(styles, {allowMultiple: true})
 
 export default class Layout extends React.Component {
 
@@ -38,17 +37,12 @@ export default class Layout extends React.Component {
         this.props.dispatch(Actions.markedAllNotesAsRead());
     };
 
-    onAsyncAddNotes = (ms) => {
-        const id = new Date;
-        const datetime = Date.now();
-        this.props.dispatch(Actions.addNotes(ms, chance.string.bind(chance), id, datetime));
-    };
-
     componentDidMount() {
-        this.onAsyncAddNotes();
+        this.props.dispatch(Actions.addNotes());
     }
 
     render() {
+
         return (
             <div>
                 <AppBar
@@ -66,12 +60,7 @@ export default class Layout extends React.Component {
                     isAnyNoteExist={this.props.isAnyNoteExist}
                     unreadNotesNumber={this.props.unreadNotesNumber}
                 />
-
-                <div styleName="center">
-                    <span styleName="qs">? <span styleName="popover">Hey bro, cool popover!</span></span>
-                </div>
             </div>
         )
-
     }
 }

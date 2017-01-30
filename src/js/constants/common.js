@@ -1,0 +1,2 @@
+export const ADD_ASYNC_NOTE_INTERVAL = 20000;
+export const NOTES_NUMBER_IN_POPOVER = 5;

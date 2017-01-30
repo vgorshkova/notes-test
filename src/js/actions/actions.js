@@ -1,8 +1,11 @@
-const ADD_NEW_NOTE_INTERVAL = 20000;
+import Chance from 'chance';
+import * as types from '../constants/ActionTypes';
+import * as constants from '../constants/common';
+
 
 export function createNote(title, id, datetime) {
     return {
-        type: 'CREATE_NOTE',
+        type: types.CREATE_NOTE,
         payload: {
             title: title,
             id,
@@ -13,22 +16,24 @@ export function createNote(title, id, datetime) {
 
 export function deleteNotes() {
     return {
-        type: 'DELETE_NOTES'
+        type: types.DELETE_NOTES
     }
 }
 
 export function markedAllNotesAsRead() {
     return {
-        type: 'MARKED_ALL_NOTES_AS_READ'
+        type: types.MARKED_ALL_NOTES_AS_READ
     }
 }
 
-export function addNotes(ms = ADD_NEW_NOTE_INTERVAL, fn, id, datetime) {
+export function addNotes(ms = constants.ADD_ASYNC_NOTE_INTERVAL) {
 
     return dispatch => {
         return (
             setInterval(() => {
-                return dispatch(createNote(fn()), id, datetime)
+                const id = Date.now();
+                const datetime = new Date;
+                return dispatch(createNote(chance.string(), id, datetime))
             }, ms)
         )
     }
@@ -36,7 +41,7 @@ export function addNotes(ms = ADD_NEW_NOTE_INTERVAL, fn, id, datetime) {
 
 export function toggleUnreadNotesPopup() {
     return {
-        type: 'TOGGLE_UNREAD_NOTES_POPOVER'
+        type: types.TOGGLE_UNREAD_NOTES_POPOVER
     }
 }
 

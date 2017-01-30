@@ -1,21 +1,11 @@
-const initialState = {
-    unreadNotesPopoverOpen: false,
-    localStatus: {
-        lastUpdate: Date.now(),
-        isSomeNotes: true,
-        isSomeNewNotes: true
-    }
-};
-export default function reducer(state=initialState, action) {
+import * as types from '../constants/ActionTypes';
+import {UI} from '../constants/InitialStates';
 
+export default function reducer(state=UI, action) {
     switch (action.type) {
-        case 'TOGGLE_UNREAD_NOTES_POPOVER': {
+        case types.TOGGLE_UNREAD_NOTES_POPOVER: {
             return {...state, isUnreadNotesPopoverOpen: !state.isUnreadNotesPopoverOpen};
         }
-
-        /*case 'UPDATE_LOCAL_STATUS': {
-            return {...state, lastUpdate: Date.now(), isSomeNotes: action.isSomeNotes, isSomeNewNotes: action.isSomeNewNotes};
-        }*/
 
         default: {
             return state;

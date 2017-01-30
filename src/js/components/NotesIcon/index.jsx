@@ -1,37 +1,29 @@
 import React from 'react';
 import Badge from 'material-ui/Badge';
-import ShowNotesButton from '../ShowNotesButton';
+import ToggleNotesButton from '../ToggleNotesButton';
+import styles from './styles';
 
-export default class NotesIcon extends React.Component {
 
-    /*componentDidMount() {
-        this.timerID = setInterval(
-            () => this.sendNewNotification(),
-            500
-        );
-    }
+const NotesIcon = ({
+    notes,
+    unreadNotesNumber,
+    unreadNotesPopoverOpen,
+    onToggleUnreadNotesPopup}) => {
 
-    componentWillUnMount() {
-        clearInterval(this.timerID);
-    }
-    */
+    return (
+        <Badge
+            badgeContent={unreadNotesNumber || ""}
+            primary={!unreadNotesNumber}
+            secondary={!!unreadNotesNumber}
+            badgeStyle={styles.badgeStyle}
+        >
+            <ToggleNotesButton
+                notes={notes}
+                unreadNotesPopoverOpen={unreadNotesPopoverOpen}
+                onToggleUnreadNotesPopup={onToggleUnreadNotesPopup}
+            />
+        </Badge>
+    )
+};
 
-    render() {
-        const {notes, unreadNotesNumber, unreadNotesPopoverOpen, onToggleUnreadNotesPopup} = this.props;
-
-        return (
-            <Badge
-                badgeContent={unreadNotesNumber || ""}
-                primary={!unreadNotesNumber}
-                secondary={!!unreadNotesNumber}
-                badgeStyle={{top: 12, right: 12 }}
-            >
-                <ShowNotesButton
-                    notes={notes}
-                    unreadNotesPopoverOpen={unreadNotesPopoverOpen}
-                    onToggleUnreadNotesPopup={onToggleUnreadNotesPopup}
-                />
-            </Badge>
-        )
-    }
-}
+export default NotesIcon;
