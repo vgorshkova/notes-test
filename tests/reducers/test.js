@@ -68,7 +68,6 @@ describe('notes reducer', () => {
         )
     });
 
-
     it('should delete all notes', () => {
         expect(
             notesReducer(
@@ -118,7 +117,6 @@ describe('notes reducer', () => {
                 datetime: 276543234556
             }])
     });
-
 
     it('should receive all notes', () => {
         expect(
@@ -182,5 +180,4 @@ describe('ui reducer', () => {
             )
         ).toEqual({isUnreadNotesPopoverOpen: true})
     });
-
 });

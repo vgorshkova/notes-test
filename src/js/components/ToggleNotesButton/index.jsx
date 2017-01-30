@@ -15,7 +15,7 @@ export default class ShowNotesButton extends React.Component {
         this.setState({
             anchorEl: this.AnchorElement
         });
-    };
+    }
 
     handleTouchTap = (event) => {
         event.preventDefault();

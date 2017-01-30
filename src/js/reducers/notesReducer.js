@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes';
-import * as initialState from '../constants/InitialStates';
+import { NOTES } from '../constants/InitialStates';
 
-export default function reducer(state=initialState.NOTES, action) {
+export default function reducer(state=NOTES, action) {
 
     switch (action.type) {
         case types.CREATE_NOTE: {
@@ -30,8 +30,6 @@ export default function reducer(state=initialState.NOTES, action) {
         default: {
             return state;
         }
-
     }
-
 }
 

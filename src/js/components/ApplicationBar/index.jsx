@@ -10,7 +10,7 @@ export default class AppBar extends React.Component {
 
         return (
             <ApplicationBar
-                title="Your messages"
+                title="Ваши уведомления"
                 titleStyle={styles.title}
                 iconElementRight={
                 <NotesIcon

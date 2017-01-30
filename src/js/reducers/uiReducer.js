@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-import {UI} from '../constants/InitialStates';
+import { UI } from '../constants/InitialStates';
 
 export default function reducer(state=UI, action) {
     switch (action.type) {

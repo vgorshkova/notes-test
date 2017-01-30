@@ -44,6 +44,7 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-    new CopyWebpackPlugin([{ from: '../index.html' }])
+    new CopyWebpackPlugin([{ from: '../index.html' }]),
+    new webpack.DefinePlugin({ 'process.env':{ 'NODE_ENV': JSON.stringify('production') }}),
   ]
 };

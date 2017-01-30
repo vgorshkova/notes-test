@@ -16,7 +16,6 @@ export default class NoteCreator extends React.Component {
 
     onChange = (e) => {
         this.fillInput(e.target.value);
-
     };
 
     fillInput = (str) => {

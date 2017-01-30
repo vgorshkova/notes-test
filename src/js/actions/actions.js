@@ -1,6 +1,6 @@
 import Chance from 'chance';
 import * as types from '../constants/ActionTypes';
-import * as constants from '../constants/common';
+import { ADD_ASYNC_NOTE_INTERVAL } from '../constants/common';
 
 
 export function createNote(title, id, datetime) {
@@ -26,7 +26,7 @@ export function markedAllNotesAsRead() {
     }
 }
 
-export function addNotes(ms = constants.ADD_ASYNC_NOTE_INTERVAL) {
+export function addNotes(ms=ADD_ASYNC_NOTE_INTERVAL) {
 
     return dispatch => {
         return (
