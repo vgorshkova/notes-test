@@ -117,48 +117,6 @@ describe('notes reducer', () => {
                 datetime: 276543234556
             }])
     });
-
-    it('should receive all notes', () => {
-        expect(
-            notesReducer([
-                    {
-                        title: "Test string",
-                        id: 12345,
-                        unread: true,
-                        datetime: 76543234556
-                    }, {
-                        title: "Test string2",
-                        id: 123456,
-                        unread: true,
-                        datetime: 176543234556
-                    }, {
-                        title: "Test string3",
-                        id: 1234567,
-                        unread: false,
-                        datetime: 276543234556
-                    }]
-                ,
-                {type: types.GET_ALL_NOTES}
-            )
-        ).toEqual(
-            [
-                {
-                    title: "Test string",
-                    id: 12345,
-                    unread: true,
-                    datetime: 76543234556
-                }, {
-                title: "Test string2",
-                id: 123456,
-                unread: true,
-                datetime: 176543234556
-            }, {
-                title: "Test string3",
-                id: 1234567,
-                unread: false,
-                datetime: 276543234556
-            }])
-    });
 });
 
 describe('ui reducer', () => {

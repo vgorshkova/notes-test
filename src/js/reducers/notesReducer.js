@@ -23,10 +23,6 @@ export default function reducer(state=NOTES, action) {
             });
         }
 
-        case types.GET_ALL_NOTES: {
-            return state.slice();
-        }
-
         default: {
             return state;
         }
