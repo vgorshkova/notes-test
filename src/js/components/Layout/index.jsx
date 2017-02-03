@@ -4,7 +4,6 @@ import NoteCreator from '../NoteCreator';
 import ManagePanel from '../ManagePanel';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions/actions';
-import CSSModules from 'react-css-modules'; //could be used in layout with the attribute 'styleName'
 import {NOTES_NUMBER_IN_POPOVER} from '../../constants/common'
 
 
@@ -16,8 +15,6 @@ import {NOTES_NUMBER_IN_POPOVER} from '../../constants/common'
         isAnyNoteExist: store.notes.length
     };
 })
-
-//@CSSModules(styles, {allowMultiple: true})
 
 export default class Layout extends React.Component {
 

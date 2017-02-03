@@ -24,6 +24,7 @@ export default class ShowNotesButton extends React.Component {
 
     render() {
         const {notes, unreadNotesPopoverOpen, onToggleUnreadNotesPopup} = this.props;
+
         return (
             <div>
                 <div ref={(icon) => { this.AnchorElement = icon; }}>
