@@ -21,7 +21,7 @@ Work:
 * buttons
 * test coverage of redux 
 
-Preview: `https://vgorshkova.github.io/notes-demo.github.io/ `
+[Preview](https://vgorshkova.github.io/notes-demo.github.io/ "Notes-test preview")
 
 Description:
 
